@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: site.nomoreparties.stellarburgers.orders.GetIngredientsOrderTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 s - in site.nomoreparties.stellarburgers.orders.GetIngredientsOrderTest
