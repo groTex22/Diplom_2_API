@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: site.nomoreparties.stellarburgers.orders.CreateOrderTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.241 s - in site.nomoreparties.stellarburgers.orders.CreateOrderTest
