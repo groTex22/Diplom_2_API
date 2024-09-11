@@ -46,6 +46,7 @@ public class CreateUserTest {
     }
 
     @Test
+    @DisplayName("Создание пользователя со всеми параметрами")
     public void createUserFieldAllParamTest() {
         //Заполним все параметры
         user.setEmail(AbstractTestApi.EMAIL);
@@ -61,6 +62,7 @@ public class CreateUserTest {
     }
 
     @Test
+    @DisplayName("Создание пользователя с некорректным email")
     public void createUserIncorrectEmailTest() {
         //Заполним все параметры
         user.setEmail("test_Ryzkov");
@@ -70,11 +72,10 @@ public class CreateUserTest {
 
         ValidatableResponse response = clientUser.createUser(user);
         response.statusCode( HttpStatus.SC_INTERNAL_SERVER_ERROR);
-        /*Assert.assertEquals("Ожидаем ошибку сервера",
-                response.extract().statusCode(), HttpStatus.SC_INTERNAL_SERVER_ERROR);*/
     }
 
     @Test
+    @DisplayName("Создание пользователя без email")
     public void createUserNoEmailTest() {
         //Заполним все параметры кроме мыла
         user.setPassword(AbstractTestApi.PASSWORD);
@@ -88,6 +89,7 @@ public class CreateUserTest {
     }
 
     @Test
+    @DisplayName("Создание без указания пароля")
     public void createUserNoPasswordTest() {
         //Заполним все параметры кроме пароля
         user.setEmail(AbstractTestApi.EMAIL);
@@ -102,6 +104,7 @@ public class CreateUserTest {
     }
 
     @Test
+    @DisplayName("Создание без указания имени")
     public void createUserNoNameTest() {
         //Заполним все параметры кроме имени
         user.setEmail(AbstractTestApi.EMAIL);
@@ -118,6 +121,7 @@ public class CreateUserTest {
 
     //Повторная регистрация
     @Test
+    @DisplayName("Повторная попытка создать пользователя с теми же параметрами")
     public void createUserDoubleTest() {
         //Заполним все параметры кроме имени
         user.setEmail(AbstractTestApi.EMAIL);

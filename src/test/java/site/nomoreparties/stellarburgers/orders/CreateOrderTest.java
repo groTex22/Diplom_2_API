@@ -34,8 +34,8 @@ public class CreateOrderTest {
         ingredient = new ArrayList<>();
     }
 
-
     @Test
+    @DisplayName("Создание заказа со всеми ингредиентами без авторизации")
     public void createOrderAllIngredientNoAuthTest() {
         //Добавляем сразу все ингредиенты
         for (int i=0; i < ingredients.getData().size(); i++) {
@@ -50,7 +50,8 @@ public class CreateOrderTest {
 
     /*Для этого теста придется создать пользователя и авторизоваться*/
     @Test
-    public void createOrderAllIngredientWithAuthTest() {
+    @DisplayName("Создание заказа с ингредиентами и авторизацией")
+    public void createOrderWithIngredientWithAuthTest() {
         ClientUser clientUser = new ClientUser();
         //Получили токен
         String accessToken =
@@ -73,6 +74,7 @@ public class CreateOrderTest {
     }
 
     @Test
+    @DisplayName("Создание заказа без ингредиентов")
     public void createOrderNoIngredientTest() {
         //Пустой список ингредиентов
         order.setIngredients(ingredient);

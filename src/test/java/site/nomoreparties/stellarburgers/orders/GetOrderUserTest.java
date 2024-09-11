@@ -1,5 +1,6 @@
 package site.nomoreparties.stellarburgers.orders;
 
+import io.qameta.allure.junit4.DisplayName;
 import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
 import org.junit.After;
@@ -10,6 +11,7 @@ import site.nomoreparties.stellarburgers.clients.ClientOrder;
 import site.nomoreparties.stellarburgers.clients.ClientUser;
 import site.nomoreparties.stellarburgers.pojo.User;
 
+@DisplayName("Тесты на получение заказов")
 public class GetOrderUserTest {
     String accessToken;
     ClientUser clientUser;
@@ -33,6 +35,7 @@ public class GetOrderUserTest {
     }
 
     @Test
+    @DisplayName("Получение заказа авторизованным пользователем")
     public void getOrderUserWithAuthTest() {
         clientOrder.getOrderUser(accessToken)
                 .statusCode(HttpStatus.SC_OK)
@@ -41,6 +44,7 @@ public class GetOrderUserTest {
     }
 
     @Test
+    @DisplayName("Получение заказа НЕ авторизованным пользователем")
     public void getOrderUserNoAuthTest() {
         clientOrder.getOrderUser()
                 .statusCode(HttpStatus.SC_UNAUTHORIZED)

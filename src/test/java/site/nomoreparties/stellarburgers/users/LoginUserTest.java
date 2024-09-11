@@ -54,6 +54,7 @@ public class LoginUserTest {
     }
 
     @Test
+    @DisplayName("Успешная авторизация со всеми параметрами")
     public void loginUserFieldAllParamTest() {
         //Заполним все параметры
         loginUser.setEmail(AbstractTestApi.EMAIL);
@@ -67,16 +68,12 @@ public class LoginUserTest {
                         .body("refreshToken", Matchers.notNullValue())
                         .and()
                         .body("user", Matchers.notNullValue());
-      /*  Assert.assertEquals("Ожидаем ответ 200, успешная авторизация",
-                response.extract().statusCode(), HttpStatus.SC_OK);
-        Assert.assertNotNull(response.extract().path("accessToken"));
-        Assert.assertNotNull(response.extract().path("refreshToken"));
-        Assert.assertNotNull(response.extract().path("user"));*/
     }
 
     @Test
+    @DisplayName("Авторизация только с email без пароля")
     public void loginUserOnlyEmailParamTest() {
-        //Заполним все параметры
+        //Заполним параметры
         loginUser.setEmail(AbstractTestApi.EMAIL);
 
         ValidatableResponse response = clientUser.loginUser(loginUser);
@@ -86,13 +83,10 @@ public class LoginUserTest {
                         .body("success", Matchers.is(false))
                         .and()
                         .body("message", Matchers.equalTo("email or password are incorrect"));
-        /*Assert.assertEquals("Ожидаем ответ 401",
-                HttpStatus.SC_UNAUTHORIZED, response.extract().statusCode());
-        Assert.assertFalse(response.extract().path("success"));
-        Assert.assertEquals("email or password are incorrect", response.extract().path("message"));*/
     }
 
     @Test
+    @DisplayName("Авторизация только с паролем без email")
     public void loginUserOnlyPasswordParamTest() {
         //Заполним все параметры
         loginUser.setPassword(AbstractTestApi.PASSWORD);
@@ -104,13 +98,10 @@ public class LoginUserTest {
                 .body("success", Matchers.is(false))
                 .and()
                 .body("message", Matchers.equalTo("email or password are incorrect"));
-        /*Assert.assertEquals("Ожидаем ответ 401",
-                HttpStatus.SC_UNAUTHORIZED, response.extract().statusCode());
-        Assert.assertFalse(response.extract().path("success"));
-        Assert.assertEquals("email or password are incorrect", response.extract().path("message"));*/
     }
 
     @Test
+    @DisplayName("Авторизация с несуществующем пользователем")
     public void loginUserNotFoundTest() {
         String emailNoFound = "RyzhkovNotFound@diplom.ru";
         //Заполним все параметры
@@ -143,10 +134,6 @@ public class LoginUserTest {
                 .and()
                 .body("message", Matchers.equalTo("email or password are incorrect"));
 
-      /*  Assert.assertEquals("Ожидаем ответ 401",
-                loginResponse.extract().statusCode(), HttpStatus.SC_UNAUTHORIZED);
-        Assert.assertFalse(loginResponse.extract().path("success"));
-        Assert.assertEquals("email or password are incorrect", loginResponse.extract().path("message"));*/
     }
 
 }

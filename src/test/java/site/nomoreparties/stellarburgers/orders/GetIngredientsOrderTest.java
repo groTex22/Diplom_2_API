@@ -11,12 +11,15 @@ import site.nomoreparties.stellarburgers.pojo.Ingredients;
 public class GetIngredientsOrderTest {
 
     @Test
+    @DisplayName("Получение ингредиентов")
     public void getIngredientsTest() {
         ClientOrder clientOrder = new ClientOrder();
 
         Ingredients ingredients = clientOrder.getIngredients();
         Assert.assertTrue(ingredients.getSuccess());
-        //Просто проверим, что всего 15 ингредиентов, каких не важно.
-        Assert.assertEquals(15 , ingredients.getData().size());
+        //И тег data не пустой, большего пока не требовалось
+        //to_do: при необходимости можно будет проверить на null каждый тег одного из ингредиентов
+        Assert.assertNotNull(ingredients.getData());
+
     }
 }

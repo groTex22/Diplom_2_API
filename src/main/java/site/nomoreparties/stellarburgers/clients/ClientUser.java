@@ -71,7 +71,6 @@ public class ClientUser extends AbstractTestApi {
     public Response changeDataUser( User user) {
         return given()
                 .spec(getSpec())
-                //.header("Authorization", accessToken)
                 .body(user)
                 .when()
                 .patch(USER_AUTH_ENDPOINT);

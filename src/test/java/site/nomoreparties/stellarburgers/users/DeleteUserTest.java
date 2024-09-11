@@ -29,6 +29,7 @@ public class DeleteUserTest {
     }
 
     @Test
+    @DisplayName("Успешное удаление пользователя")
     public void deleteUserSuccess() {
         //Создание проверяется в другом классе, здесь просто создаем
         ValidatableResponse response = clientUser.createUser(user);

@@ -37,6 +37,7 @@ public class ChangeUserTest {
     }
     /*Проверяем получение информации о пользователи*/
     @Test
+    @DisplayName("Получение информации о пользователи")
     public void getDataUserTest() {
         Response getResponce = clientUser.getDataUser(accessToken);
         //Проверки
@@ -48,6 +49,7 @@ public class ChangeUserTest {
 
     /*Проверяем изменение имени пользователя*/
     @Test
+    @DisplayName("Изменение имени пользователя")
     public void changeNameWithAuthTest() {
         String newName = AbstractTestApi.NAME + "11";
         user.setName(newName);
@@ -62,6 +64,7 @@ public class ChangeUserTest {
 
     /*Проверяем изменение пароля пользователя*/
     @Test
+    @DisplayName("Изменение пароля пользователя")
     public void changePasswordWithAuthTest() {
         user.setPassword(AbstractTestApi.PASSWORD + "111");
 
@@ -75,6 +78,7 @@ public class ChangeUserTest {
 
     //Проверяем изменение email пользователя*/
     @Test
+    @DisplayName("Изменение email пользователя")
     public void changeEmaildWithAuthTest() {
         String newEmail = AbstractTestApi.EMAIL + "11";
         user.setEmail(newEmail);
@@ -91,6 +95,7 @@ public class ChangeUserTest {
     * ожидание ошибка, что не авторизованы
     * Досточно одного сценария, падаем при любом body*/
     @Test
+    @DisplayName("Изменение без авторизации")
     public void changeNameNoAuthTest() {
 
         user.setName(AbstractTestApi.NAME + "11");
